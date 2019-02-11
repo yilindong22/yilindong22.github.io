@@ -26,9 +26,9 @@ function draw() {
 }
 function mousePressed(){
   fill (255,0,0);
-  xSpeed = random(-3,3;)
-  ySpeed = random(-3,3;)
+  xSpeed = random(-3,3);
+  ySpeed = random(-3,3);
 }
-function mouseReleased(){\fill(0,0,255);}
-}
+function mouseReleased(){fill(0,0,255);}
+
 
