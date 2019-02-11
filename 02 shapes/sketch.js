@@ -8,20 +8,20 @@
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  x = width/2
-  y = height/2
+  x = width/2;
+  y = height/2;
   xSpeed = random(-3,3);
   ySpeed = random(-3,3);
-  background(255)
+  background(0);
   noStroke();
 }
 
 function draw() {
-  background(220);
-  ellipse(MOUSEx,MOUSEY,25,25)
-  x += xSpeed
-  y += ySpeed
-  dill(random(255), random(255), random(255))
+ 
+  ellipse(x,y,25,25);
+  x += xSpeed;
+  y += ySpeed;
+  fill(random(255), random(255), random(255));
 
 }
 function mousePressed(){
