@@ -7,10 +7,16 @@
 
 
 function setup() {
-  createCanvas(400,300);
+  createCanvas(windowWidth, windowHeight);
 }
-
-function draw() {
-  background(220,0,200);
-rect(100,50,25,75,80);
+function keyTyped(){
+  if (key==="a")
+  rect(mouseX,mouseY,75,100);
+  value=0;
+  if (key==="b")
+  ellipse(mouseX,mouseY,75,100);
+  value=0;
+  if (key==="d")
+  arc(mouseX,mouseY,80, 80, 0, PI + QUARTER_PI);
+  value=0;
 }
