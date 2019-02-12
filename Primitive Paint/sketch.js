@@ -12,11 +12,12 @@ function setup() {
 function keyTyped(){
   if (key==="a")
   rect(mouseX,mouseY,75,100);
-  value=0;
+  
   if (key==="b")
   ellipse(mouseX,mouseY,75,100);
-  value=0;
   if (key==="d")
   arc(mouseX,mouseY,80, 80, 0, PI + QUARTER_PI);
-  value=0;
+  fill(random(255));
+
+  
 }
