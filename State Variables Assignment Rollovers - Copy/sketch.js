@@ -4,7 +4,7 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
-let rectShade = 0;
+
 let quadrant = 0;
 let q1Fill = 255;
 let q2Fill = 255;
@@ -32,29 +32,61 @@ function draw() {
 	determineQuadrant();
 	line(width / 2, 0, width / 2, height)
 	line(0, height / 2, width, height / 2)
+	// quadrant 1 :
 	if (quadrant === 1) {
-       q1Fill = 0;
+	   q1Fill = 0;
+	   if (mouseClicked){
+	     q1Fill = 0;
+	     q2Fill = 0;
+	     q3Fill = 0;
+	     q4Fill = 0;
+	   
+	         
+	   }
 		
 	}
 	else {
 		q1Fill += 5;
+		
 	}
-	fill(q1Fill);
+	fill(q1Fill,255,q1Fill);
 	rect(0, 0, width / 2, height / 2)
+	// quadrant 2 :
+	
+	if (quadrant === 2) {
+		q2Fill = 0;
+		 
+	 }
+	else {
+		 q2Fill += 5;
+	 }
+	 fill(q2Fill,q2Fill,255);
+	 rect(width / 2, 0, width , height / 2)
+	 
+	// quadrant 3: 
+	 
+	 if (quadrant === 3) {
+		q3Fill = 0;
+		 
+	 }
+	else {
+		 q3Fill += 5;
+	 }
+	 fill(255,q3Fill,q3Fill);
+	 rect(0, height / 2, width/2 , height) 
+	// quadrant 4:
+	 
+	if (quadrant === 4) {
+		q4Fill = 0;
+		 
+	 }
+	else {
+		 q4Fill += 5;
+	 }
+	 fill(q4Fill);
+	 rect(width/2, height / 2, width , height) 
+
+
 
 
 }
-//   if (quad1 === true)
-//    rect(0,0,width/2,height/2)
-//    rectShade = 0
-//    if(rectShade < 255)
-//      fill(rectShade += 2);
-//    else fill (255); 
-//  if(mouseX > width/2 && mouseY >= height/2 )
-//    rect(width/2,height/2,width,height)
-//    fill(0)
-//   if(mouseX <= width/2 && mouseY > height/2 )
-//    rect(0,height/2,width/2,height)
-//    fill(0) 
-//   if(mouseX > width/2 && mouseY < height/2 )
-//    rect(width/2,0,width/2,height/2)
