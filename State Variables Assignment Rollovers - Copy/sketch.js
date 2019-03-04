@@ -27,6 +27,8 @@ function determineQuadrant() {
 	}
 }
 
+
+
 function draw() {
 	background(255);
 	determineQuadrant();
@@ -35,7 +37,7 @@ function draw() {
 	// quadrant 1 :
 	if (quadrant === 1) {
 	   q1Fill = 0;
-	   if (mouseClicked){
+	   if (mouseIsPressed){
 	     q1Fill = 0;
 	     q2Fill = 0;
 	     q3Fill = 0;
@@ -55,12 +57,13 @@ function draw() {
 	
 	if (quadrant === 2) {
 		q2Fill = 0;
+		
 		 
 	 }
 	else {
 		 q2Fill += 5;
 	 }
-	 fill(q2Fill,q2Fill,255);
+	 fill(q2Fill,255,255);
 	 rect(width / 2, 0, width , height / 2)
 	 
 	// quadrant 3: 
@@ -78,6 +81,7 @@ function draw() {
 	 
 	if (quadrant === 4) {
 		q4Fill = 0;
+		
 		 
 	 }
 	else {
