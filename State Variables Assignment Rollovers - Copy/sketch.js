@@ -5,38 +5,45 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 let rectShade = 0;
-let quadrant = 1;
+let quadrant = 0;
 let q1Fill = 255;
 let q2Fill = 255;
 let q3Fill = 255;
 let q4Fill = 255;
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+	createCanvas(windowWidth, windowHeight);
 
 }
 
 
-function determineQuadrant(){
-	if (mouseX < width/2){
-		if (mouseY < height/2) quadrant = 1;
+function determineQuadrant() {
+	if (mouseX < width / 2) {
+		if (mouseY < height / 2) quadrant = 1;
 		else quadrant = 3;
 	}
 	else {
-		if (mouseY  < height/2) quadrant = 2 
+		if (mouseY < height / 2) quadrant = 2
 		else quadrant = 4
 	}
 }
 
 function draw() {
-  background(255);
-  determineQuadrant();
-  line(width/2,0,width/2,height)
-  line(0,height/2,width,height/2)
-  if (quadrant = 1) 
-     fill(0);
+	background(255);
+	determineQuadrant();
+	line(width / 2, 0, width / 2, height)
+	line(0, height / 2, width, height / 2)
+	if (quadrant === 1) {
+       q1Fill = 0;
+		
+	}
+	else {
+		q1Fill += 5;
+	}
+	fill(q1Fill);
+	rect(0, 0, width / 2, height / 2)
 
 
-  
+}
 //   if (quad1 === true)
 //    rect(0,0,width/2,height/2)
 //    rectShade = 0
@@ -51,6 +58,3 @@ function draw() {
 //    fill(0) 
 //   if(mouseX > width/2 && mouseY < height/2 )
 //    rect(width/2,0,width/2,height/2)
-fill(0);
-rect(width/2,0,width/2,height/2)
-}
