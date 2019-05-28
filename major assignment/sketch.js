@@ -6,11 +6,10 @@ let currentImage = 0;
 chara = [] 
 function preload() {
   for (let i = 0; i < 8; i++){ 
-
     chara.push(loadImage("assets/walk/1" + i + ".png"));             
   }
-
 }
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(10) // speed switch images
@@ -38,7 +37,7 @@ function charas(){
   if (direction === 2){ 
     if(currentImage >8){
       currentImage = 1;}
-      else {
+    else {
         currentImage ++; 
       }
 
