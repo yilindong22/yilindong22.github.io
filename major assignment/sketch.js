@@ -5,8 +5,8 @@ let y = 100;
 let currentImage = 0; 
 chara = [] 
 function preload() {
-  for (let i = 0; i < 8; i++){ 
-    chara.push(loadImage("assets/walk/1" + i + ".png"));             
+  for (let i = 0; i <= 8; i++){ 
+    chara.push(loadImage("assets/walk/0" + i + ".png"));             
   }
 }
 
@@ -26,8 +26,8 @@ function charas(){
   translate(x, y); // move trump
   scale(0.5); // size 
   if (direction === 1){  // if direction = 1 then trump move left 
-    scale(-1,0)
-    if(currentImage > 8 ){
+    scale(-1,1)
+    if(currentImage > 7 ){
       currentImage = 1;
     }
     else {
@@ -42,6 +42,7 @@ function charas(){
       }
 
   }
+  print(currentImage,direction)
   image(chara[currentImage], 0, 0);
   pop();
 }
