@@ -3,11 +3,11 @@ let direction = 1
 let x = 100;
 let y = 100; 
 let currentImage = 0; 
-MS = [] 
+chara = [] 
 function preload() {
-  for (let i = 0; i < 3; i++){ 
+  for (let i = 0; i < 8; i++){ 
 
-    MS.push(loadImage("assets/walk/01" + i + ".png"));             
+    chara.push(loadImage("assets/walk/1" + i + ".png"));             
   }
 
 }
@@ -20,34 +20,35 @@ function setup() {
 
 function draw() {
   background(220);
-  MSs()
+  charas()
   }
 
 
 
-function MSs(){ 
+function charas(){ 
   
   imageMode(CENTER); 
   push();
   translate(x, y); // move trump
   scale(0.5); // size 
   if (direction === 1){  // if direction = 1 then trump move left 
-    if(currentImage > 10 || currentImage < 6){
-      currentImage = 6;
+    scale(-1,0)
+    if(currentImage > 9 ){
+      currentImage = 1;
     }
     else {
       currentImage ++;
     }
   }
   if (direction === 2){ 
-    if(currentImage < 1 || currentImage > 4){
+    if(currentImage >9){
       currentImage = 1;}
       else {
         currentImage ++; 
       }
 
   }
-  image(MS[currentImage], 0, 0);
+  image(chara[currentImage], 0, 0);
   pop();
 }
 
