@@ -1,12 +1,12 @@
 //Image Demo
 let direction = 1 
 let x = 100;
-let y = 100; 
+let y = 600; 
 let currentImage = 0; 
-chara = [] 
+walk = [] 
 function preload() {
   for (let i = 0; i <= 8; i++){ 
-    chara.push(loadImage("assets/walk/0" + i + ".png"));             
+    walk.push(loadImage("assets/walk/0" + i + ".png"));             
   }
 }
 
@@ -17,17 +17,17 @@ function setup() {
 
 function draw() {
   background(220);
-  charas()
+  walkk()
 }
 
-function charas(){ 
+function walkk(){ 
   imageMode(CENTER); 
   push();
   translate(x, y); // move trump
-  scale(0.5); // size 
+  scale(1.5); // size 
   if (direction === 1){  // if direction = 1 then trump move left 
     scale(-1,1)
-    if(currentImage > 7 ){
+    if(currentImage >= 8 ){
       currentImage = 1;
     }
     else {
@@ -35,7 +35,7 @@ function charas(){
     }
   }
   if (direction === 2){ 
-    if(currentImage >8){
+    if(currentImage >= 8){
       currentImage = 1;}
     else {
         currentImage ++; 
@@ -43,7 +43,7 @@ function charas(){
 
   }
   print(currentImage,direction)
-  image(chara[currentImage], 0, 0);
+  image(walk[currentImage], 0, 0);
   pop();
 }
 

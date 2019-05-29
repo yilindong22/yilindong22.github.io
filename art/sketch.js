@@ -13,16 +13,16 @@ function draw() {
 }
 
 function flower() { // the function to draw the flower
-  w = sin(frameCount) * 100;
-  h = tan(frameCount) * 100;
+  w = tan(frameCount) * 100;
+  h = sin(frameCount) * 100;
   translate(width/2, height/2); // posstion 
-  for (i = 0; i < 50; i++) {
+  for (i = 0; i < 3; i++) {
     rotate(radians(360 / 3));
     ellipse(0, 0, w, h);
   }
 }
 
-function key1(){
+function key1(){ //press the mouse to save the picture
   if (mouseIsPressed){
     save()
   }
