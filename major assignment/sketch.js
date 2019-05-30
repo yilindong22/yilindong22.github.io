@@ -15,13 +15,13 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(8) // speed switch images
+  frameRate(7) // speed switch images
 }
 
 function draw() {
   background(220);
   walkk()
-  print(shooot)
+  print(shooot,direction,currentImage)
 }
 
 function walkk(){ 
@@ -46,8 +46,23 @@ function walkk(){
       }
 
   }
-  if (shooot >= 1){
     currentImage === 10
+  if (shooot >= 1 && direction === 2){
+    if(currentImage >= 12 || currentImage <= 8){
+      currentImage = 9;}
+   else{
+        currentImage ++;
+      }
+   shooot -=1 
+  }
+  if (shooot >= 1 && direction === 1){
+    //scale (-1,1)
+    if(currentImage >= 12 || currentImage <= 8){
+      currentImage = 9;}
+   else{
+        currentImage ++;
+      }
+   shooot -=1 
   }
     
     
