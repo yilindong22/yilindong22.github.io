@@ -4,13 +4,14 @@ let x = 100;
 let y = 600; 
 let currentImage = 0;
 walk = [] 
-shoot = []
+bullet = []
 let shooot = 0
-
+let bcurrentImage = 0
 function preload() {
   for (let i = 0; i <= 13; i++){ 
     walk.push(loadImage("assets/walk/0" + i + ".png"));             
   }
+   bullet.push(loadImage("assets/bullet/0.png"))
 }
 
 function setup() {
@@ -22,6 +23,7 @@ function draw() {
   background(220);
   walkk()
   print(shooot,direction,currentImage)
+  bullet2()
 }
 
 function walkk(){ 
@@ -44,9 +46,7 @@ function walkk(){
     else {
         currentImage ++; 
       }
-
   }
-    currentImage === 10
   if (shooot >= 1 && direction === 2){
     if(currentImage >= 12 || currentImage <= 8){
       currentImage = 9;}
@@ -63,14 +63,20 @@ function walkk(){
         currentImage ++;
       }
    shooot -=1 
-  }
-    
-    
+  } 
   image(walk[currentImage], 0, 0);
   pop();
 
 }
 
+function bullet2(){
+  imageMode(CENTER);
+  scale(0.3) 
+  push();
+  translate(x, y); 
+  image(bullet[bcurrentImage], 0, 0);
+  pop();
+}
   
 function keyPressed(){
   if (keyCode === RIGHT_ARROW){ // right side
@@ -81,7 +87,7 @@ function keyPressed(){
     x -= 20;
     direction = 1
   }
-  if(keyCode === UP_ARROW ){
+  if(key === " " ){
     shooot += 1
   }
 }
