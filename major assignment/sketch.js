@@ -71,9 +71,14 @@ function walkk(){
 
 function bullet2(){
   imageMode(CENTER);
-  scale(0.3) 
+  scale(0.15) 
   push();
-  translate(x, y); 
+  translate(x+300,y+3308); 
+  if(shooot >= 1){
+    for (let g = 0; g <= width; g++){ 
+      translate(x+g,y+3308)
+  }
+}
   image(bullet[bcurrentImage], 0, 0);
   pop();
 }
