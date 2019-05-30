@@ -47,26 +47,8 @@ function walkk(){
 
   }
   if (shooot >= 1){
-    if (direction === 3){
-      currentImage === 9
-    if(currentImage >= 13){
-      shooot = 0 
-    }
-    else{
-      currentImage ++
-    }
-   }
-    if(direction === 4){
-      scale(-1,1)
-    currentImage === 9
-    if(currentImage >= 13){
-      shooot = 0 
-    }
-    else{
-      currentImage ++
-    }
-   }
-   }
+    currentImage === 10
+  }
     
     
   image(walk[currentImage], 0, 0);
@@ -85,12 +67,6 @@ function keyPressed(){
     direction = 1
   }
   if(keyCode === UP_ARROW ){
-    if(direction = 1){
-      direction =3 
-    }
-    if (direction === 2){
-      direction = 4
-    } 
     shooot += 1
   }
 }
