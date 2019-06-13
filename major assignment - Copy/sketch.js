@@ -2,6 +2,7 @@ let GRAVITY = 1;
 let Marco 
 var JUMP = 10;
 let bullets
+let bullet = [];
 let rotation = 0
 let atc  
 let SCENE_W = 1900 
@@ -20,14 +21,14 @@ function preload() {
 }
 
 function setup() {
+  //bullet = createSprite(Marco.position.x, Marco.position.y,);
   createCanvas(windowWidth, windowHeight);
   frameRate(60) // speed switch images  
-  bullets = new Group();
   EnemY() 
 }
 
 function draw() {
-
+  
   imageMode(CENTER)
   image(backg,900,500);
   walkk()
@@ -51,13 +52,19 @@ function draw() {
   if(Marco.position.x > 1485 ){
     camera.position.x = 2227.5 
   }
+
   if(keyWentDown("z")){
-    bullet = createSprite(Marco.position.x, Marco.position.y,);
-    bullet.addImage(bulletImage);
-    bullet.setSpeed(10+Marco.getSpeed(),rotation);
-    bullet.life = - windowWidth;
+    bullet.push(createSprite (Marco.position.x,Marco.position.y))
+    //bullet.position.y = Marco.position.y
+    
+    bullet[bullet.length-1].addImage(bulletImage);
+    bullet[bullet.length-1].setSpeed(10+Marco.getSpeed(),rotation);
+    bullet[bullet.length-1].life = - windowWidth;
    }
-   
+   //
+   for(i=0;i<bullet.length;i++){
+    print(i, ": \t",bullet[i].position.x)
+   }
 }
 
 function walkk(){ 
