@@ -3,108 +3,106 @@ let direction = 1
 let x = 100;
 let y = 600;
 let currentImage = 0;
-walk = []
+let ecurrentImage = 0
+let Marco 
 let pArray = []
 let bullet 
 let shooot = 0
+enemy = []
 
-  function preload() {
-  for (let i = 0; i <= 13; i++){ 
-    walk.push(loadImage("assets/walk/0" + i + ".png"));             
+function preload() {
+  Marco = createSprite(30, 400, 50, 100);
+  Marco.addAnimation("moving","assets/walk/00.png","assets/walk/08.png");
+  Marco.addAnimation("shooting","assets/shoot/09.png","assets/shoot/13.png");
+  for(let p = 0; p <= 3; p++){
+    enemy.push(loadImage("assets/enemy/0" + p + ".png")); 
   }
-   bullet = loadImage("assets/bullet/0.png")
+  bullet = loadImage("assets/bullet/0.png")
+  backg =  loadImage("assets/background/backg2.png")
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(7) // speed switch images
-  noStroke()
+  
 }
 
 function draw() {
-  background(220);
+  imageMode(CORNER)
+  image(backg,0,0);
   walkk()
-  print(shooot,direction,currentImage)
-  pArray.push(new Particle(x, y));
-  for (let i = 0; i < pArray.length; i++){
-    pArray[i].move();
-    pArray[i].display();  
-    if (pArray[i].isAlive() === false){
-      pArray.splice(i,1);
-      i--;  
+  //print(shooot,direction,currentImage)
+    for (let i = 0; i < pArray.length; i++){
+      pArray[i].move();
+      pArray[i].display();  
+      if (pArray[i].isAlive() === false){
+        pArray.splice(i,1);
+        i--;  
+      }
     }
-  }
+}
+
+function enemy2(){
+  imageMode(CENTER); 
+  push();
+  translate(width/2,height/2)
+  scale(1); 
+  image(enemy[1], 0, 0);
+  pop();
 }
 
 function walkk(){ 
   imageMode(CENTER); 
   push();
-  translate(x, y); 
   scale(1.5);  
-  if (direction === 1 && shooot<1){  
-    scale(-1,1)
-    if(currentImage >= 8 ){
-      currentImage = 1;
-    }
-    else {
-      currentImage ++;
-    }
+  if (keyIsDown('LEFT_ARROW')){  
+    Marco.changeAnimation('moving');
+    Marco.mirrorX(-1);
+    Marco.velocity.x = -1 ;
   }
-  if (direction === 2 && shooot < 1){ 
-    if(currentImage >= 8){
-      currentImage = 1;}
-    else {
-        currentImage ++; 
-      }
+  if (keyIsDown('RIGHT_ARROW') ){ 
+    Marco.changeAnimation('moving');
+    Marco.mirrorX(1);
+    Marco.velocity.x = 1;
   }
-  if (shooot >= 1 && direction === 2){
-    if(currentImage >= 12 || currentImage <= 8){
-      currentImage = 9;}
-   else{
-        currentImage ++;
-      } 
-   shooot -=1 
-  }
-  if (shooot >= 1 && direction === 1){
-    scale (-1,1)
-    if(currentImage >= 12 || currentImage <= 8){
-      currentImage = 9;}
-   else{
-        currentImage ++;
-      }
-   shooot -=1 
-  } 
-  image(walk[currentImage], 0, 0);
-  pop();
-
+//   if (shooot >= 1 && direction === 2){
+//     Marco.changeAnimation('shooting');
+//     Marco.mirrorX(1);
+//     shooot -=1 
+//   }
+//   if (shooot >= 1 && direction === 1){
+//     Marco.changeAnimation('shooting');
+//     Marco.mirrorX(-1);
+//     shooot -=1 
+//  }
+ drawSprites();
 }
-
-
   
-function keyPressed(){
-  if (keyCode === RIGHT_ARROW){ // right side
-    x += 20;
-    direction = 2
-  }
-  if (keyCode === LEFT_ARROW){ // left side
-    x -= 20;
-    direction = 1
-  }
-  if(key === " " ){
-    shooot = 5
-  }
-}
+// function keyPressed(){
+//   if (keyCode === RIGHT_ARROW){ // right side
+//     direction = 2
+//   }
+//   if (keyCode === LEFT_ARROW){ // left side
+//     direction = 1
+//   }
+//   if(key === "z" ){
+//     shooot = 5
+//     pArray.push(new Particle(x, y));
+//   }
+//   if (key === "x"){
+//     if( y === 600){
+//       y -= 60 
+//     }
+//   }
+// }
 
-function mouseClicked(){
-  pArray.push(new Particle(x, y));
-}
 class Particle{
   constructor(x_, y_){
     this.x = x_;
     this.y = y_;
     this.c = color(map(x_,0, width,0,255),map(y_,0, height,0,255),map(x_,0, width,255,0));
     this.ySpeed = 0
-    this.xSpeed = 15
+    this.xSpeed = 100
     this.lifetime = windowWidth
     this.maxLifetime = this.lifetime;
     this.noiseLoc = 10;
@@ -124,12 +122,10 @@ class Particle{
     else return false;
   }
   display(){
-    ellipseMode(CENTER);
     fill(this.c);
     push();
     translate(this.x,this.y);
-    //ellipse(0,0,this.size,this.size);
-    image(bullet,0,0,200,200);
+    image(bullet,-100,-10,70,70);
     pop();
   }
 }
