@@ -65,6 +65,8 @@ function draw() {
    for(i=0;i<bullet.length;i++){
     print(i, ": \t",bullet[i].position.x)
    }
+  
+
 }
 
 function walkk(){ 
